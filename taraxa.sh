@@ -37,6 +37,7 @@ function installDeps {
 	cd $HOME
 	sudo apt update
 	sudo apt install wget curl unzip -y < "/dev/null"
+	installDocker
 }
 
 function installSoftware {
@@ -83,29 +84,12 @@ do
 			echo -e '\n\e[33mYour node was upgraded (reinstalled)!\e[0m\n' && sleep 1
 			break
             ;;
-		"Set up swap")
-            echo -e '\n\e[31mYou choose set up swap...\e[0m\n' && sleep 1
-			setupSwap
-			echo -e '\n\e[42mOk!\e[0m\n' && sleep 1
+		"Delete")
+            echo -e '\n\e[31mYou choose delete...\e[0m\n' && sleep 1
+			deleteTaraxa
+			echo -e '\n\e[42mTaraxa was deleted!\e[0m\n' && sleep 1
 			break
             ;;
-
-    "Install docker")
-      echo -e '\n\e[31mYou choose install docker...\e[0m\n' && sleep 1
-			installDocker
-			echo -e '\n\e[42mOk!\e[0m\n' && sleep 1
-			break
-            ;;
-
-    "Install")
-          echo -e '\n\e[42mYou choose install...\e[0m\n' && sleep 1
-    			setupVars
-    			installDeps
-    			installSoftware
-    			checkStatus
-    			break
-                ;;
-
         "Quit")
             break
             ;;
